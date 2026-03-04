@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shooting Debris</title>
+  <link rel="stylesheet" href="game.css">
+
+  <!-- meta tag for design in different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- meta tag for characters -->
+  <meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+  <!-- FOND : placeholder spline / image -->
+  <div class="bg">
+    <img src="bg-game.jpeg" class="bg-img" style="opacity: 0.5;">
+  </div>
+
+
+  <!-- Vidéo plein écran -->
+  <div id="videoGate" class="videoGate">
+    <video id="introVideo" playsinline preload="auto" muted>
+      <source src="teleport3.mp4" type="video/mp4">
+    </video>
+
+    <div class="videoOverlayUI">
+      <div class="videoHint" id="videoHint">Tap/click pour lancer</div>
+      <button class="neonBtn ghost" id="skipBtn">Skip</button>
+    </div>
+  </div>
+
+  <!-- Instructions (après la vidéo) -->
+  <div id="instructionsGate" class="instructionsGate hidden">
+    <div class="instructionsCard">
+      <div class="neonTitle">Instructions</div>
+
+      <div class="instructionsText">
+        <p>• Clique / tap sur les débris pour les détruire.</p>
+        <p>• Bleu : +30 • Rose : +5</p>
+      </div>
+
+      <div class="instructionsActions">
+        <button class="neonBtn" id="startBtn">OK — Start</button>
+        <button class="neonBtn ghost" id="backFromInstructionsBtn">Retour</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Musique (se lance au clic sur OK) -->
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="game-audio.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- HUD jeu -->
+  <div class="hud">
+    <div class="hudLeft">
+      <div class="hudTitle">Shooting Debris</div>
+      <div class="hudSub" id="hudSub">75 secondes. Meilleur score: 1118</div>
+    </div>
+
+    <div class="hudRight">
+      <div class="pill">Score: <span id="score">0</span></div>
+      <div class="pill">Temps: <span id="time">75.0</span>s</div>
+      <button class="pillBtn" id="exitBtn">Exit</button>
+    </div>
+  </div>
+
+  <!-- Canvas jeu -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Fin -->
+  <div id="endScreen" class="endScreen hidden">
+    <div class="endCard">
+      <div class="endTitle">Fin</div>
+      <div class="endScore">
+        Score: <span id="finalScore">0</span></div>
+      <div class="bestScore">
+        Meilleur score : 1118
+      </div>
+      <div class="endActions">
+        <button class="neonBtn" id="replayBtn">Replay</button>
+        <button class="neonBtn ghost" id="backBtn">Retour</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+:root{
+  --cyan: rgba(120,240,255,1);
+  --pink: rgba(255,80,200,1);
+  --glass: rgba(0,0,0,.45);
+  --line: rgba(255,255,255,.14);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow:hidden;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(900px 600px at 20% 20%, rgba(120,240,255,.12), transparent 60%),
+    radial-gradient(900px 600px at 80% 30%, rgba(255,80,200,.10), transparent 60%),
+    radial-gradient(1200px 800px at 50% 90%, rgba(255,255,255,.06), transparent 60%),
+    #000;
+}
+
+.bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+
+
+.hud{
+  position:fixed;
+  top:16px;
+  left:16px;
+  right:16px;
+  z-index:5;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  pointer-events:none;
+}
+
+.hudLeft, .hudRight{
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 12px 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(120,240,255,.08);
+}
+
+.hudTitle{
+  font-size:18px;
+  font-weight:700;
+  text-shadow: 0 0 18px rgba(120,240,255,.18);
+}
+.hudSub{
+  margin-top:4px;
+  font-size:13px;
+  color: rgba(255,255,255,.72);
+}
+
+.hudRight{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  pointer-events:auto; /* pour cliquer Exit */
+}
+
+.pill{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  box-shadow: 0 0 18px rgba(120,240,255,.08);
+  font-weight:600;
+}
+
+.pillBtn{
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.55);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 0 20px rgba(255,80,200,.10);
+}
+.pillBtn:active{ transform: scale(.98); }
+
+#gameCanvas{
+  position:fixed;
+  inset:0;
+  z-index:2;
+  width:100vw;
+  height:100vh;
+  touch-action: manipulation;
+  cursor: crosshair;
+}
+
+.videoGate{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  background:#000;
+}
+
+#introVideo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover; /* ou "contain" si tu veux pas crop */
+  background:#000;
+}
+
+.videoOverlayUI{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding: 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  pointer-events:none;
+}
+
+
+.videoCard{
+  width:min(880px, 92vw);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.55);
+  padding: 14px;
+  box-shadow: 0 0 30px rgba(120,240,255,.08), 0 0 50px rgba(255,80,200,.06);
+  position:relative;
+}
+
+.neonTitle{
+  font-weight:800;
+  letter-spacing:.06em;
+  margin: 6px 4px 12px;
+  text-shadow: 0 0 18px rgba(120,240,255,.25);
+}
+
+video{
+  width:100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:#000;
+}
+
+.videoHint{
+  pointer-events:none;
+  color: rgba(255,255,255,.75);
+  font-size: 13px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 10px 12px;
+}
+
+.neonBtn{
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(120,240,255,.28);
+  background: rgba(0,0,0,.55);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow: 0 0 18px rgba(120,240,255,.12);
+}
+.neonBtn.ghost{
+  border-color: rgba(255,80,200,.22);
+  box-shadow: 0 0 18px rgba(255,80,200,.10);
+}
+.neonBtn:active{ transform: scale(.98); }
+
+#skipBtn{
+  pointer-events:auto;
+}
+
+.endScreen{
+  position:fixed;
+  inset:0;
+  z-index:12;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(10px);
+}
+.hidden{ display:none; }
+
+.endCard{
+  width:min(520px, 92vw);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.55);
+  padding: 18px;
+  box-shadow: 0 0 30px rgba(120,240,255,.08), 0 0 50px rgba(255,80,200,.06);
+}
+.endTitle{ font-size:22px; font-weight:900; }
+.endScore{ margin-top:10px; color: rgba(255,255,255,.85); font-size:16px; }
+.endActions{ display:flex; gap:10px; margin-top:14px; }
+
+
+/* --- INSTRUCTIONS --- */
+.instructionsGate{
+  position:fixed;
+  inset:0;
+  z-index:21;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.70);
+  backdrop-filter: blur(10px);
+}
+
+.instructionsCard{
+  width:min(560px, 92vw);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.55);
+  padding: 18px;
+  box-shadow: 0 0 30px rgba(120,240,255,.08), 0 0 50px rgba(255,80,200,.06);
+}
+
+.instructionsText{
+  margin-top: 10px;
+  color: rgba(255,255,255,.85);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.instructionsText p{
+  margin: 8px 0;
+}
+
+.instructionsActions{
+  display:flex;
+  gap:10px;
+  margin-top: 14px;
+}
+
+.hidden{ display:none; }

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accueil</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- main font of the website, procured by Chat GPT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- meta tag for design in different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- meta tag for characters -->
+    <meta charset="UTF-8">
+
+</head>
+
+<style>
+</style>
+
+
+
+<body>
+
+    <!-- earth animation -->
+    <div class="video-container">
+        <video id="bgVideo" autoplay muted loop playsinline> <!-- command that makes the video loop -->
+            <source src="earth-loop2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+
+    <!-- Menu -->
+    <ul>
+        <li><a href="home.html" class="active">Accueil</a></li>
+        <li><a href="definition.html">Évolution</a></li>
+        <li><a href="cause.html">Causes</a></li>
+        <li><a href="consequence.html">Conséquences</a></li>
+        <li><a href="solution.html">Solutions</a></li>
+    </ul>
+    <nav></nav>
+
+
+
+
+    <!-- Title -->
+    <h1 style="margin-bottom: 10px;">DÉBRIS EN ORBITES</h1>
+    <div class="mini-divider"></div>
+
+    <p style="text-align:center; font-size: 23px; padding-bottom: 600px">
+        <!-- the "padding-bottom" helps creating space between the next element -->
+        Le coût de l’inaction et les solutions possibles
+    </p>
+
+
+
+
+    <!-- Panels to navigate -->
+    <section class="panel-strip" aria-label="Panels horizontaux">
+        <div class="strip" id="strip"> <!-- horizontal scrollable strip containing the panels -->
+
+
+            <!-- defining each panels -->
+            <a href="definition.html" class="panel panel--big">
+                <h3>ÉVOLUTION</h3>
+                <p>
+                    Comprenez comment l’activité spatiale a évolué au fil des décennies et pourquoi l’orbite terrestre
+                    est devenue un
+                    environnement critique.
+                </p>
+            </a>
+
+
+            <a href="cause.html" class="panel">
+                <h3>CAUSES</h3>
+                <p>
+                    Découvrez comment les activités humaines ont créé cette pollution orbitale.
+                    Vous comprendrez les mécanismes derrière l’accumulation des débris en orbite.
+                </p>
+            </a>
+
+
+            <a href="consequence.html" class="panel">
+                <h3>CONSÉQUENCES</h3>
+                <p>
+                    Ici, vous verrez les risques concrets pour notre environnement spatiale et notre quotidien sur
+                    Terre.
+                </p>
+            </a>
+
+
+            <a href="solution.html" class="panel">
+                <h3>SOLUTIONS</h3>
+                <p>
+                    Cette partie présente les technologies et stratégies actuelles pour limiter
+                    les débris, et ce qui pourrait transformer l’avenir de l’exploration spatiale.
+                    Vous découvrirez également le coût de l'inaction.
+                </p>
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- the Javascript files used for this page -->
+    <script src="script.js"></script>
+    <script src="slider.js"></script>
+    <script src="star.js"></script>
+
+</body>
+
+</html>

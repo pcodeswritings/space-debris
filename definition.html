@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Évolution</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- general font-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <!-- links to that contain the spline module I configured for this page -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.65/build/spline-viewer.js"></script>
+
+
+    <!-- meta tag for characters -->
+    <meta charset="UTF-8">
+
+    <!-- meta tag for design in different devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<style>
+</style>
+
+<body>
+
+    <!-- Menu-->
+    <ul>
+        <li><a href="home.html">Accueil</a></li>
+        <li><a href="definition.html" class="active">Évolution</a></li>
+        <li><a href="cause.html">Causes</a></li>
+        <li><a href="consequence.html">Conséquences</a></li>
+        <li><a href="solution.html">Solutions</a></li>
+    </ul>
+    <nav></nav>
+
+
+    <!-- display of the background image of the title -->
+    <section class="bg-section">
+        <img src="bg-earth2.jpg" alt="" style="opacity:0.45;">
+
+        <div class="bg-section-content"> <!-- section content -->
+            <h1>
+                L'ÉVOLUTION DE L'ESPACE
+            </h1>
+            <p style="padding: 100px; font-size: 25px;">
+                Plus le temps passe, plus le nombre d'objets en orbite s’accélère de manière exponentielle, bien plus
+                vite qu'on ne le croît.
+                L'étude de l'évolution de l'espace nous permet de voir le lien direct entre l'intérêt spatial et la
+                prolifération des débris
+            </p>
+        </div>
+    </section>
+
+
+
+    <br><br><br><br>
+
+
+
+    <!-- display of the spline module -->
+    <div class="spline-viewer">
+        <spline-viewer url="https://prod.spline.design/sN398f0DN3DfrEWn/scene.splinecode"></spline-viewer>
+    </div>
+
+
+    <!-- grids  -->
+    <section class="rocket-grid">
+
+        <!-- Text 1 (up, right) -->
+        <div class="card card-text1">
+            <h2>La démocratisation de l'espace</h2>
+            <p>
+                L’ère spatiale débute le 4 octobre 1957 avec le lancement de Spoutnik 1 par l’Union soviétique. Cet
+                événement marque un tournant mondial, car pour la première fois, un objet fabriqué par l’homme orbite
+                autour de la Terre. Ce lancement marque les consciences et fait naître une véritable curiosité
+                scientifique
+                envers ce secteur encore niche. S’ensuivent les débuts de l’exploration orbitale et les premières
+                missions
+                spatiales.
+
+                <br><br>À partir des années 1990 (et surtout après 2000), l’espace est de plus en plus perçu comme un
+                terrain
+                fertile, riche en opportunités économiques et stratégiques. Les satellites de télécommunication et de
+                navigation se multiplient, et les lancements deviennent plus fréquents. Les grandes puissances spatiales
+                (USA, Russie, Chine) ne sont plus les seuls à investir massivement ; les entreprises privées comme
+                SpaceX
+                et Blue Origin commencent à s’imposer dans le marché.
+
+                <br><br>Cette ouverture progressive du secteur à davantage de pays et d’entreprises marque une réelle
+                démocratisation de l’espace, et explique en grande partie l’intérêt spatial d’aujourd’hui.
+            </p>
+        </div>
+
+
+        <!-- Stats numbers (up, left) -->
+        <div class="card card-stats">
+            <div class="stats">
+                <div class="number" data-target="25170">0</div> <!-- animated counter -->
+                <p>Nombre total actuel de satellites lancés en orbite terrestre</p>
+
+                <hr> <!-- seperation line -->
+
+                <div class="stats-row"> <!-- I use rows for secondary stats -->
+                    <div class="stats-col">
+                        <div class="number" data-target="7070">0</div>
+                        <p>Nombre de lancements orbitaux depuis 1957</p>
+                    </div>
+
+                    <div class="stats-col">
+                        <div class="number" data-target="44870">0</div>
+                        <p>Nombre d'objets spatiaux suivis aujourd'hui</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- text 2 (down, right) -->
+        <div class="card card-text2">
+            <h2>Vue d'ensemble des données orbitales</h2>
+            <p>
+                Le diagramme présenté est issu de l’ESA (Agence spatiale européenne) et date de 2024. Il montre une
+                rupture
+                claire après 2010, avec une grande accélération à partir de 2020. En seulement dix ans, le nombre total
+                d’objets
+                passe d’environ 25 000 à près de 35 000. Ces données illustrent l’impact de la démocratisation du
+                secteur spatial évoquée précédemment.
+                Aujourd’hui, chaque lancement ajoute non seulement des satellites actifs (PL), mais aussi des fragments
+                (PF, PD, RF, RD),
+                des étages de fusées (RB), et des débris minuscules, non identifiables (UI). Cette accumulation rapide
+                surcharge les orbites et
+                augmente fortement le risque de collisions, ce qui transforme l’espace proche de la Terre en un
+                environnement de plus en plus instable.
+            </p>
+        </div>
+
+
+        <!-- image (down, left) -->
+        <div class="card card-visual">
+            <img src="graphic1.jpeg" alt="Diagram">
+        </div>
+
+    </section>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+    <!-- next page button -->
+    <div class="align-btn">
+        <a href="cause.html" class="btn">DÉCOUVRIR LES CAUSES</a>
+    </div>
+
+
+
+    <!-- js scripts used -->
+    <script src="stats.js"></script>
+    <script src="star.js"></script>
+
+</body>
+
+</html>
