@@ -48,18 +48,18 @@ hr {
 }
 
 
-/* global body layout and base style 
+/* global body layout and base style */
 body {
   margin: 0;
   padding: 40px 120px 120px;
-  /* top right/left bottom 
+  /* top right/left bottom */
   min-height: 100vh;
   background: black;
   color: white;
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow-x: hidden;
-  /* prevents micro scrolls 
+  /* prevents micro scrolls */
 }
 
 
