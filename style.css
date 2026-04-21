@@ -48,29 +48,29 @@ hr {
 }
 
 
-/* global body layout and base style */
+/* global body layout and base style 
 body {
   margin: 0;
   padding: 40px 120px 120px;
-  /* top right/left bottom */
+  /* top right/left bottom 
   min-height: 100vh;
   background: black;
   color: white;
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow-x: hidden;
-  /* prevents micro scrolls */
+  /* prevents micro scrolls 
 }
 
 
-/* static star layer (foreground stars) */
+/* static star layer (foreground stars) 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* cover entire screen */
+  /* cover entire screen 
   pointer-events: none;
-  /* ignore mouse events */
+  /* ignore mouse events 
   opacity: .7;
   background-image:
     radial-gradient(1px 1px at 13% 22%, #fff, transparent),
@@ -82,7 +82,7 @@ body::before {
 }
 
 
-/* animated star layer (twinkling background stars) */
+/* animated star layer (twinkling background stars) 
 body::after {
   content: "";
   position: fixed;
