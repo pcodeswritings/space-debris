@@ -1,45 +1,46 @@
 const video = document.getElementById("bgVideo");
 
-// réglages
-const maxShiftPx = 220;    // combien ça descend au max
-const maxZoom = 5;      // zoom max
-const scrollRange = 2000;   // sur combien de px de scroll l'effet se fait
+// Sur mobile : pas d'effet de scroll/zoom, juste la vidéo fixe
+if (window.innerWidth <= 480) {
+  // reset tout transform
+  if (video) video.style.transform = "none";
+  // pas de listener scroll
+} else {
+  // desktop : comportement original
+  const maxShiftPx = 220;
+  const maxZoom = 5;
+  const scrollRange = 2000;
 
-let latestY = 0;
-let ticking = false;
+  let latestY = 0;
+  let ticking = false;
 
-function apply() {
-  // progression 0 → 1
-  const p = Math.min(1, latestY / scrollRange);
-  const button = document.querySelector(".home-btn");
+  function apply() {
+    const p = Math.min(1, latestY / scrollRange);
+    const button = document.querySelector(".home-btn");
 
-  if (button) {
-    if (p > 0.15) {
-      button.style.opacity = 1;
-      button.style.pointerEvents = "auto";
-    } else {
-      button.style.opacity = 0;
-      button.style.pointerEvents = "none";
+    if (button) {
+      if (p > 0.15) {
+        button.style.opacity = 1;
+        button.style.pointerEvents = "auto";
+      } else {
+        button.style.opacity = 0;
+        button.style.pointerEvents = "none";
+      }
     }
+
+    const shift = p * maxShiftPx;
+    const zoom = 1 + p * (maxZoom - 1);
+    video.style.transform = `translate3d(0, ${shift}px, 0) scale(${zoom})`;
+    ticking = false;
   }
 
+  window.addEventListener("scroll", () => {
+    latestY = window.scrollY || 0;
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(apply);
+    }
+  });
 
-
-  const shift = p * maxShiftPx;              // descend
-  const zoom = 1 + p * (maxZoom - 1);        // zoom
-
-  video.style.transform = `translate3d(0, ${shift}px, 0) scale(${zoom})`;
-  ticking = false;
+  apply();
 }
-
-window.addEventListener("scroll", () => {
-  latestY = window.scrollY || 0;
-  if (!ticking) {
-    ticking = true;
-    requestAnimationFrame(apply);
-  }
-});
-
-// au chargement
-apply();
-
