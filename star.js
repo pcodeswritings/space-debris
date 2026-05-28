@@ -1,4 +1,8 @@
 (() => {
+  // Guard: un seul spawn par session
+  if (window.__starSpawned) return;
+  window.__starSpawned = true;
+
   // Évite de relancer si déjà sur game.html
   if (location.pathname.toLowerCase().includes("game.html")) return;
 
@@ -112,6 +116,10 @@
 
     // Nettoyage après animation
     setTimeout(() => {
+  // Guard: un seul spawn par session
+  if (window.__starSpawned) return;
+  window.__starSpawned = true;
+
       wrap.remove();
     }, (dur + 0.3) * 1000);
   }
