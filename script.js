@@ -1,12 +1,8 @@
-const video = document.getElementById("bgVideo");
+// Sur mobile: rien du tout, le CSS gère la vidéo
+if (window.innerWidth > 480) {
+  const video = document.getElementById("bgVideo");
+  if (!video) return;
 
-// Sur mobile : pas d'effet de scroll/zoom, juste la vidéo fixe
-if (window.innerWidth <= 480) {
-  // reset tout transform
-  if (video) video.style.transform = "none";
-  // pas de listener scroll
-} else {
-  // desktop : comportement original
   const maxShiftPx = 220;
   const maxZoom = 5;
   const scrollRange = 2000;
@@ -17,17 +13,10 @@ if (window.innerWidth <= 480) {
   function apply() {
     const p = Math.min(1, latestY / scrollRange);
     const button = document.querySelector(".home-btn");
-
     if (button) {
-      if (p > 0.15) {
-        button.style.opacity = 1;
-        button.style.pointerEvents = "auto";
-      } else {
-        button.style.opacity = 0;
-        button.style.pointerEvents = "none";
-      }
+      button.style.opacity = p > 0.15 ? 1 : 0;
+      button.style.pointerEvents = p > 0.15 ? "auto" : "none";
     }
-
     const shift = p * maxShiftPx;
     const zoom = 1 + p * (maxZoom - 1);
     video.style.transform = `translate3d(0, ${shift}px, 0) scale(${zoom})`;
@@ -35,6 +24,12 @@ if (window.innerWidth <= 480) {
   }
 
   window.addEventListener("scroll", () => {
+    latestY = window.scrollY || 0;
+    if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+  });
+
+  apply();
+}  window.addEventListener("scroll", () => {
     latestY = window.scrollY || 0;
     if (!ticking) {
       ticking = true;
