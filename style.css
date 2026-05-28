@@ -274,8 +274,14 @@ nav {
 @media (max-width: 480px) {
   .video-container video {
     object-fit: contain !important;
-    transform: none !important;
+    transform: scale(0.72) !important;
     will-change: unset !important;
+    object-position: center 30% !important;
+  }
+
+  /* slides bien en dessous de la terre */
+  .panel-strip {
+    margin-top: 40px !important;
   }
 }
 
