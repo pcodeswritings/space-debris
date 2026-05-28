@@ -265,11 +265,18 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* fill screen without distortion */
-  object-position: center +150px;
+  object-position: center center;
   will-change: transform;
   transform: translate3d(0, 0, 0) scale(1);
   transform-origin: center 100%;
+}
+
+@media (max-width: 480px) {
+  .video-container video {
+    transform: none !important;
+    will-change: unset !important;
+    object-position: center center !important;
+  }
 }
 
 
@@ -1084,22 +1091,8 @@ spline-viewer {
     z-index: 100;
   }
 
-  /* VIDEO HOME — taille correcte, centrée, fond noir comble les bords */
-  .video-container {
-    background: black;
   }
-  .video-container video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* scale 0.68 = terre bien visible, pas trop grande, pas trop petite */
-    transform: translate(-50%, -50%) scale(0.68) !important;
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    will-change: unset;
-  }
+
 
   /* HOME PAGE — le padding-bottom:600px crée le scroll infini */
   /* On le remplace par une hauteur fixe raisonnable */
