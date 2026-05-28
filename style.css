@@ -273,9 +273,9 @@ nav {
 
 @media (max-width: 480px) {
   .video-container video {
-    transform: scale(0.6) !important;
+    object-fit: contain !important;
+    transform: none !important;
     will-change: unset !important;
-    object-position: center center !important;
   }
 }
 
