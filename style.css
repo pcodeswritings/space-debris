@@ -1,21 +1,7 @@
 /* —— GLOBAL STYLES —— */
 
-/* smooth scroll */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -63,14 +49,14 @@ body {
 }
 
 
-/* static star layer (foreground stars) 
+/* static star layer (foreground stars) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  /* cover entire screen 
+  /* cover entire screen */
   pointer-events: none;
-  /* ignore mouse events 
+  /* ignore mouse events */
   opacity: .7;
   background-image:
     radial-gradient(1px 1px at 13% 22%, #fff, transparent),
@@ -82,7 +68,7 @@ body::before {
 }
 
 
-/* animated star layer (twinkling background stars) 
+/* animated star layer (twinkling background stars) */
 body::after {
   content: "";
   position: fixed;
@@ -1041,4 +1027,317 @@ spline-viewer {
     background: rgba(0, 0, 0, 0.35);
   }
 
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE — ajouté pour téléphones (≤ 480px)
+   Optimisé pour iPhone / phones standard
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  /* ---- BODY & GLOBAL ---- */
+  body {
+    padding: 16px 16px 60px;
+  }
+
+  /* ---- TYPOGRAPHY ---- */
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  /* ---- NAVIGATION — hamburger menu ---- */
+  ul {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    background: rgba(0,0,0,0.85);
+    border-radius: 8px;
+    padding: 0;
+    margin-top: 40px; /* espace pour le bouton burger */
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  ul.nav-open {
+    max-height: 260px;
+    padding: 10px 0;
+  }
+
+  li {
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
+
+  li a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+  }
+
+  li a::after {
+    display: none; /* pas d'underline animé sur mobile */
+  }
+
+  li a.active {
+    color: #4aa3ff;
+  }
+
+  nav {
+    margin: 12px 0 20px;
+  }
+
+  /* bouton burger — injecté par JS */
+  .burger-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    color: white;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    line-height: 1;
+  }
+
+  /* ---- BG SECTION (hero images) ---- */
+  .bg-section-content h1 {
+    font-size: 22px !important;
+    padding: 0 10px;
+  }
+
+  .bg-section-content p {
+    padding: 12px 14px !important;
+    font-size: 15px !important;
+    line-height: 1.6;
+  }
+
+  .bg-section img {
+    min-height: 240px;
+    object-fit: cover;
+  }
+
+  /* ---- SPLINE — désactivé sur mobile ---- */
+  .spline-viewer {
+    display: none !important;
+  }
+
+  /* ---- ROCKET GRID (definition.html) ---- */
+  .rocket-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .card-text1,
+  .card-stats,
+  .card-text2,
+  .card-visual {
+    grid-column: unset;
+    grid-row: unset;
+    width: 100%;
+  }
+
+  .card {
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  /* stats numbers */
+  .number {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .card-visual img {
+    min-height: 180px;
+    object-fit: cover;
+  }
+
+  /* ---- ROCKET DUO / PAIR (consequence, solution) ---- */
+  .rocket-duo {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .rocket-pair {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* text avant image sur mobile */
+  .rocket-pair .rocket-text {
+    border-radius: 8px 8px 0 0 !important;
+    border-right: 1px solid rgba(255,255,255,0.18) !important;
+    border-bottom: none;
+  }
+
+  .rocket-pair .rocket-img {
+    border-radius: 0 0 8px 8px !important;
+    min-height: 200px;
+  }
+
+  .rocket-img img {
+    min-height: 200px;
+    height: 220px;
+  }
+
+  /* ---- SLIDER CAUSES (sx-slider) ---- */
+  .sx-slider {
+    margin: 24px auto 0;
+    border-radius: 8px;
+  }
+
+  .sx-slide {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px 16px 60px;
+    align-items: start;
+  }
+
+  .sx-title {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+
+  .sx-text {
+    font-size: 14px;
+    max-width: 100%;
+    margin-right: 0;
+    color: rgba(255,255,255,0.82);
+  }
+
+  .sx-img {
+    width: 100% !important;
+    height: 200px !important;
+    margin-left: 0 !important;
+    border-radius: 6px;
+  }
+
+  .sx-img img {
+    height: 200px !important;
+    object-fit: cover !important;
+  }
+
+  .sx-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
+  }
+
+  .sx-prev { left: 8px; }
+  .sx-next { right: 8px; }
+
+  /* ---- PANELS HOME ---- */
+  .panel-strip {
+    margin-top: -40px;
+    margin-bottom: 80px;
+    padding: 16px 0;
+  }
+
+  .strip {
+    padding: 12px 16px;
+    gap: 12px;
+    scroll-padding-left: 16px;
+  }
+
+  .panel {
+    flex: 0 0 220px;
+    height: 240px;
+    padding: 16px;
+  }
+
+  .panel h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .panel p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ---- HOME — padding-bottom géant ---- */
+  /* ciblé via le body > p direct (subtitle) */
+  body > p[style*="padding-bottom"] {
+    padding-bottom: 180px !important;
+  }
+
+  /* ---- BUTTONS ---- */
+  .btn {
+    font-size: 12px;
+    padding: 13px 24px;
+    width: auto;
+    display: inline-block;
+  }
+
+  .align-btn {
+    padding-bottom: 60px;
+  }
+
+  /* ---- DIVIDER ---- */
+  .mini-divider {
+    margin: 20px auto;
+  }
+
+  /* ---- PANEL GLOW STATIC (solution) ---- */
+  .panel-glow-static {
+    padding: 16px;
+    transform: none;
+  }
+
+  .panel-glow-static p {
+    font-size: 15px !important;
+  }
+
+  /* ---- VIDEO CONTAINER (home) ---- */
+  .video-container video {
+    object-position: center center;
+  }
+
+}
+
+/* ============================================================
+   HAMBURGER JS — injecté automatiquement par burger.js
+   ============================================================ */
+
+/* home subtitle - override inline padding-bottom sur mobile */
+@media (max-width: 480px) {
+  .home-subtitle {
+    padding-bottom: 160px !important;
+    font-size: 18px !important;
+  }
 }
