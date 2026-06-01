@@ -1,7 +1,7 @@
 // Sur mobile: rien du tout, le CSS gère la vidéo
 if (window.innerWidth > 480) {
   const video = document.getElementById("bgVideo");
-  if (!video) return;
+  if (!video);
 
   const maxShiftPx = 220;
   const maxZoom = 5;
@@ -29,7 +29,7 @@ if (window.innerWidth > 480) {
   });
 
   apply();
-}  window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", () => {
     latestY = window.scrollY || 0;
     if (!ticking) {
       ticking = true;
