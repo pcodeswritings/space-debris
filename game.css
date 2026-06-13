@@ -254,3 +254,43 @@ video{
 }
 
 .hidden{ display:none; }
+/* ---- GAME.CSS — mobile ---- */
+@media (max-width: 480px) {
+  .hudTitle {
+    font-size: 14px;
+  }
+  .hudSub {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .hudLeft, .hudRight {
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+  .pill {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .pillBtn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .hud {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 10px;
+  }
+  .neonTitle {
+    font-size: 20px;
+  }
+  .instructionsText {
+    font-size: 15px;
+  }
+  .endTitle {
+    font-size: 18px;
+  }
+  .endScore {
+    font-size: 15px;
+  }
+}

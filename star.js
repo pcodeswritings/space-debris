@@ -1,4 +1,8 @@
 (() => {
+  // Guard: un seul spawn par session
+  if (window.__starSpawned) return;
+  window.__starSpawned = true;
+
   // Évite de relancer si déjà sur game.html
   if (location.pathname.toLowerCase().includes("game.html")) return;
 
@@ -15,6 +19,7 @@
         inset: 0;
         pointer-events: none;
         z-index: 999999;
+        overflow: hidden;
       }
 
       .shooting-star{
@@ -104,7 +109,9 @@
       location.href = "game.html?autoplay=1";
     };
 
-    hit.addEventListener("pointerdown", goGame, { passive: false });
+    if (window.innerWidth > 480) {
+      hit.addEventListener("pointerdown", goGame, { passive: false });
+    }
 
     star.appendChild(hit);
     wrap.appendChild(star);
@@ -112,6 +119,10 @@
 
     // Nettoyage après animation
     setTimeout(() => {
+  // Guard: un seul spawn par session
+  if (window.__starSpawned) return;
+  window.__starSpawned = true;
+
       wrap.remove();
     }, (dur + 0.3) * 1000);
   }
@@ -119,3 +130,5 @@
   // Lance une seule étoile filante par chargement
   setTimeout(spawnStar, delayMs);
 })();
+
+

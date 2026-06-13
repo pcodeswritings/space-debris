@@ -1,15 +1,13 @@
 const video = document.getElementById("bgVideo");
 
-// réglages
-const maxShiftPx = 220;    // combien ça descend au max
-const maxZoom = 5;      // zoom max
-const scrollRange = 2000;   // sur combien de px de scroll l'effet se fait
+const maxShiftPx = 220;
+const maxZoom = 5;
+const scrollRange = 2000;
 
 let latestY = 0;
 let ticking = false;
 
 function apply() {
-  // progression 0 → 1
   const p = Math.min(1, latestY / scrollRange);
   const button = document.querySelector(".home-btn");
 
@@ -23,11 +21,8 @@ function apply() {
     }
   }
 
-
-
-  const shift = p * maxShiftPx;              // descend
-  const zoom = 1 + p * (maxZoom - 1);        // zoom
-
+  const shift = p * maxShiftPx;
+  const zoom = 1 + p * (maxZoom - 1);
   video.style.transform = `translate3d(0, ${shift}px, 0) scale(${zoom})`;
   ticking = false;
 }
@@ -40,6 +35,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// au chargement
 apply();
+
+
+
 
