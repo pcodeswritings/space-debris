@@ -17,6 +17,26 @@
 
 
 <body>
+<div id="mobileBlock" style="display:none" class="game-mobile-block">
+  <h2>Jeu non disponible sur mobile</h2>
+  <p>Ce jeu est optimisé pour ordinateur.<br>Rejoue depuis un desktop pour l'expérience complète.</p>
+  <a href="home.html">← Retour à l'accueil</a>
+</div>
+<script>
+if(window.innerWidth<=480){
+  document.addEventListener("DOMContentLoaded",function(){
+    document.getElementById("mobileBlock").style.display="flex";
+    var b=document.querySelector(".bg");
+    var hud=document.querySelector(".hud");
+    var canvas=document.getElementById("gameCanvas");
+    var vg=document.getElementById("videoGate");
+    if(b)b.style.display="none";
+    if(hud)hud.style.display="none";
+    if(canvas)canvas.style.display="none";
+    if(vg)vg.style.display="none";
+  });
+}
+</script>
 
   <!-- FOND : placeholder spline / image -->
   <div class="bg">
