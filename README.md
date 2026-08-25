@@ -2,6 +2,8 @@
 
 An interactive web project exploring the challenges of space debris and the future of space sustainability.
 
+🌐 **[View Live Project](https://pcodeswritings.github.io/space-debris/)**
+
 ## About
 
 This project was developed as part of my Swiss Matura research project on space debris.
