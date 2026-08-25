@@ -2,7 +2,7 @@
 
 An interactive web project exploring the challenges of space debris and the future of space sustainability.
 
-🌐 **[View Live Project](https://pcodeswritings.github.io/space-debris/)**
+🌐 **[View Live Project](https://pmophou.github.io/space-debris/)**
 
 ## About
 
